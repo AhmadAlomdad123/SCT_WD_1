@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navigation styles */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    nav.scrolled {
+      background-color: #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff9800;
+      transform: scale(1.1);
+    }
+
+    /* Dummy content for scroll */
+    .content {
+      padding: 120px 20px 2000px; /* Make page scrollable */
+    }
+
+    .section {
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">MySite</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div class="section">
+      <h1>Welcome to MySite</h1>
+      <p>Scroll down to see the navigation bar change color.</p>
+    </div>
+    <div class="section">
+      <h2>About</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </div>
+    <div class="section">
+      <h2>Services</h2>
+      <p>We offer a wide range of services including...</p>
+    </div>
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Get in touch with us at contact@example.com</p>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
